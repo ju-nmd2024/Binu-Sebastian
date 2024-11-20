@@ -58,6 +58,16 @@ text("Parachute Landing Game", width /2,  220);
 }
 
 
+// Draw the "Back to Start" button
+function endScreen(){
+strokeWeight(0);
+fill(0, 0, 255);
+rect(250, 350, 100, 40);
+fill(255);
+textSize(16);
+text("Back To Start", 300, 370);
+}
+
 function endButton() {
 strokeWeight(0);
 fill(0, 0, 255);
@@ -67,6 +77,7 @@ textSize(16);
 textAlign(CENTER, CENTER);
 text("End Game", 300, 570); // Centered text on the button
 }
+
 
 
 function man(x,y,parachute){
@@ -185,10 +196,11 @@ function man(x,y,parachute){
   let initialGravity = 0.1;
   let landingPadSpeed = 1;
   
+  
 
   // game state variables
   let gameState = true;
-  
+  let endGameScreen = false; // New state for the "Game Ended" screen
   let gameStartScreen = true; // initially show the start screen
  
 
@@ -203,10 +215,22 @@ function man(x,y,parachute){
     startButton();
     
   }
+  
+  else if (endGameScreen) {
+    // Show end game message screen
+    background(50, 50, 50);
+    fill(0,255,0);
+    textSize(80);
+    textAlign(CENTER, CENTER);
+    text("Game Ended", width / 2, height / 2 - 20);
+    endScreen();
+    
+  }
     else {
       gameBackground();
       landingSpace(landingPadX,landingPadY);
       endButton();
+      
       
       
       // Draw clouds first so they appear behind the character
@@ -270,7 +294,6 @@ function mousePressed() {
       console.log("The Start Button Pressed! Game started!");
       
       // Transition from start screen to main game
-      
       gameStartScreen = false;
       
       // Initialize game variables for a new game
@@ -279,18 +302,27 @@ function mousePressed() {
       acceleration = 0.1;
       landingPadSpeed = 1;
     }
-  }
-
-  else{
-    if (mouseX >= 250 && mouseX <= 350 && mouseY >= 550 && mouseY <= 590) {
-      console.log("The End Button Pressed! Returning to Start Screen.");
+  } else if (endGameScreen) {
+    // Check if the "Back to Start" button is clicked
+    if (mouseX >= 250 && mouseX <= 350 && mouseY >= 350 && mouseY <= 390) {
+      console.log("Back to Start Button Pressed! Returning to Start Screen.");
       
+      // Transition to the start screen
+      endGameScreen = false;
       gameStartScreen = true;
+    }
+  } else {
+    // Check if the "End Game" button is clicked
+    if (mouseX >= 250 && mouseX <= 350 && mouseY >= 550 && mouseY <= 590) {
+      console.log("The End Button Pressed! Showing 'Game Ended' screen.");
       
-
+      // Transition to "Game Ended" screen
+      endGameScreen = true;
+      
     }
   }
 }
+
 
 
 

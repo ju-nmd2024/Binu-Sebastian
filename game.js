@@ -278,7 +278,7 @@ function man(x,y,parachute){
           gravity = 0; // Stop vertical speed (simulate landing)
           fill(255, 0, 0);
           textSize(80);
-          text("Game Over", width / 2, 80);
+          text("Crashed!!!!", width / 2, 80);
          }     
           
   }

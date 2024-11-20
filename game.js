@@ -256,7 +256,7 @@ function man(x,y,parachute){
 
      // decrease the velocity when clicking
      if (keyIsDown(32) || mouseIsPressed) {
-     gravity = gravity -0.5;
+     gravity = gravity -0.6;
      }
      
      if (y + 173 >= landingPadY) { 

@@ -191,8 +191,8 @@ function man(x,y,parachute){
   let landingPadY = 500;
 
   // game logic variable
-  let gravity = 0.1;
-  let acceleration = 0.1;
+  let gravity = 0.01;
+  let acceleration = 0.01;
   let initialGravity = 0.1;
   let landingPadSpeed = 1;
   

@@ -268,7 +268,7 @@ function man(x,y,parachute){
           gravity = 0; // Stop vertical speed (simulate landing)
           fill(0, 100, 0);
           textSize(80);
-          text("Landed Safely", width /2.2 ,  80);
+          text("Landed Safely", width /2 ,  80);
       }
       
       else {

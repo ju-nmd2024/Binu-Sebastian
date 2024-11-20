@@ -236,7 +236,7 @@ function man(x,y,parachute){
       // Draw clouds first so they appear behind the character
       cloudDark(450, 200);
       cloudDark(350, 200);
-      cloudWhite(90, 100);
+      cloudWhite(120, 100);
       cloudWhite(500, 90);
     
       // Draw character on top of clouds

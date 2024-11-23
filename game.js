@@ -54,7 +54,7 @@ textAlign(CENTER, CENTER);
 text("Start Game", 300, 320); // Centered text on the button
 fill(0);
 textSize(45);
-text("Parachute Landing Game", width /2,  220);
+text("Parachute Landing Game", width/2,220);
 }
 
 
